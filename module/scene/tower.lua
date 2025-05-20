@@ -597,6 +597,10 @@ function DrawBG(brightness, showRuler)
         gc_mDrawQ(TEXTURE.ruler, rulerQuad, 0, 0, 0, 2)
         gc_setBlendMode('alpha')
     end
+
+    -- Display altitude (Debug)
+    -- gc_setColor(1, 1, 1)
+    -- gc.print(math.floor(GAME.bgH), 10, 10, 0, 2.6)
 end
 
 local function drawPBline(h, pb, spd, textObj)
@@ -1484,6 +1488,7 @@ scene.widgetList = {
                 time = 1.2
             })
         end,
+        visibleFunc = function() return not GAME.playing and TABLE.countAll(GAME.completion, 0) < 9 end,
     },
     WIDGET.new {
         name = 'help', type = 'hint',
@@ -1497,7 +1502,7 @@ scene.widgetList = {
         onPress = function()
             switchVisitor(true)
         end,
-        visibleFunc = function() return not GAME.playing and TABLE.countAll(GAME.completion, 0) < 9 end,
+        visibleFunc = function() return not GAME.playing end,
     },
 }
 
