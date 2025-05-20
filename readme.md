@@ -10,6 +10,8 @@ Step 4: Merge the love file with Love2D exe through CMD. | Optional
 
 Step 5: Add necessary DLLs. | Optional
 
-Build instructions (Android)
+# Build instructions (Android)
 
 https://love2d.org/wiki/Game_Distribution#Android
+
+Alternatively, you can just download the LOVE Android APK and then follow steps 2 and 3 of Windows build
