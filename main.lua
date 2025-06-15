@@ -406,8 +406,8 @@ TEXTS = { -- Font size can only be 30 and 50 here !!!
     zpChange   = GC.newText(FONT.get(30)),
     dcBest     = GC.newText(FONT.get(30)),
     dcTimer    = GC.newText(FONT.get(30)),
-    title      = GC.newText(FONT.get(50), "EXPERT QUICK PICK"),
-    load       = GC.newText(FONT.get(50), "JOINING ROOM..."),
+    title      = GC.newText(FONT.get(50), "Quick access to experts"),
+    load       = GC.newText(FONT.get(50), "Where are you going..."),
     pb         = GC.newText(FONT.get(50)),
     endResult  = GC.newText(FONT.get(30)),
     endHeight  = GC.newText(FONT.get(50)),
@@ -419,7 +419,7 @@ TEXTS = { -- Font size can only be 30 and 50 here !!!
     rank       = GC.newText(FONT.get(30)),
     chain      = GC.newText(FONT.get(50)),
     chain2     = GC.newText(FONT.get(50, 'led')),
-    b2b        = GC.newText(FONT.get(30), "B2B x"),
+    b2b        = GC.newText(FONT.get(30), "x's company"),
     spike      = GC.newText(FONT.get(50)),
     gigaspeed  = GC.newText(FONT.get(50), {
         COLOR.dR, "G", COLOR.dO, "I", COLOR.dY, "G",
@@ -434,12 +434,12 @@ TEXTS = { -- Font size can only be 30 and 50 here !!!
     gigatime   = GC.newText(FONT.get(50)),
     floorTime  = GC.newText(FONT.get(30)),
     rankTime   = GC.newText(FONT.get(30)),
-    slogan     = GC.newText(FONT.get(30), "CROWD THE TOWER!"),
-    slogan_EX  = GC.newText(FONT.get(30), "THRONG THE TOWER!"),
-    slogan_rEX = GC.newText(FONT.get(30), "OVERFLOW THE TOWER!"),
-    forfeit    = GC.newText(FONT.get(50), "KEEP HOLDING TO FORFEIT"),
-    credit     = GC.newText(FONT.get(30), "Almost all assets from TETR.IO"),
-    test       = GC.newText(FONT.get(50), "TEST"),
+    slogan     = GC.newText(FONT.get(30), "Create an image!"),
+    slogan_EX  = GC.newText(FONT.get(30), "Turn the platform!"),
+    slogan_rEX = GC.newText(FONT.get(30), "Water tower!"),
+    forfeit    = GC.newText(FONT.get(50), "Click Enter"),
+    credit     = GC.newText(FONT.get(30), "Most of the money comes from TETR.IO"),
+    test       = GC.newText(FONT.get(50), "Try it"),
 }
 if fontNotLoaded then
     TASK.new(function()
@@ -449,7 +449,7 @@ if fontNotLoaded then
             if GAME.anyRev then
                 TASK.yieldT(0.26)
                 SFX.play('staffsilence')
-                MSG('dark', "A DARK FORCE INTERRUPTED THE FONT LOADING")
+                MSG('dark', "Human attacks are stopped by dark forces.")
                 IssueAchv('dark_force')
                 return
             end
@@ -477,23 +477,23 @@ BEST = {
 }
 
 STAT = {
-    mod = 'vanilla',
+    mod = 'translate',
     version = nil, -- will be set after loading
     system = SYSTEM,
     joinDate = os.date("%b %Y"),
     hid = os.date("%d%S%m%M%y%H") .. math.random(2600000000, 6200000000),
-    uid = "ANON-" .. os.date("%d_") .. math.random(2600, 6200),
+    uid = "The tracker" .. os.date("%d_") .. math.random(2600, 6200),
     keybind = {
         "q", "w", "e", "r", "t", "y", "u", "i", "o",
         "a", "s", "d", "f", "g", "h", "j", "k", "l",
         "space", "z", "x", "c"
     },
-    aboutme = "Click the Zenith!",
+    aboutme = "Click Zenit!",
     maxFloor = 1,
     maxHeight = 0,
-    heightDate = "NO DATE",
+    heightDate = "No date.",
     minTime = 2600,
-    timeDate = "NO DATE",
+    timeDate = "No date.",
 
     zp = 0,
     dzp = 0,
@@ -620,7 +620,7 @@ function IssueSecret(id, silent)
     if not STAT.badge[id] then
         STAT.badge[id] = true
         if not silent then
-            table.insert(bufferedMsg, { 'bright', "YOU DID A THING!\n", 0 })
+            table.insert(bufferedMsg, { 'bright', "You did it right!\n", 0 })
             if not GAME.playing then
                 ReleaseAchvBuffer()
             end
@@ -1112,7 +1112,7 @@ function ReloadTexts()
 end
 
 VALENTINE = false
-VALENTINE_TEXT = "FLOOD THE TOWER SIDE BY SIDE WITH WHAT COULD BE"
+VALENTINE_TEXT = "Rama fought with Pearl Burj"
 function RefreshDaily()
     local dateToday = os.date("!*t", os.time())
     local dateLastDay = os.date("!*t", math.max(STAT.lastDay, 946656000)) -- at least 2000/1/1
@@ -1160,7 +1160,7 @@ function RefreshDaily()
                 DAILY[r2] = 'r' .. DAILY[r2]
             end
         end
-        LOG('info', "Today's Daily Challenge: " .. table.concat(DAILY, ' '))
+        LOG('info', "Today's task: " .. table.concat(DAILY, ' '))
     end
 
     local v = os.date('!%d') == '14'
@@ -1184,9 +1184,9 @@ function ZENITHA.globalEvent.fileDrop(file)
         love.filesystem.write('avatar', data)
         IssueAchv('identity')
         SFX.play('supporter')
-        MSG('dark', "Your avatar was updated!")
+        MSG('dark', "Do not update your icon.")
     else
-        MSG('dark', "Invalid image file.")
+        MSG('dark', "Invalid image file")
     end
     file:close()
     file:release()
@@ -1212,7 +1212,7 @@ function ZENITHA.globalEvent.keyDown(key, isRep)
     if KBisDown('lctrl', 'rctrl') then return end
     if key == 'f12' then
         if TASK.lock('dev') then
-            MSG('check', "Zenith Clicker is powered by Love2d & Zenitha, not Web!", 6.26)
+            MSG('check', "Zenith Clicker works with Love2d and Zenith, not the website.", 6.26)
         else
             ZENITHA.setDevMode(not ZENITHA.getDevMode() and 1 or false)
         end
@@ -1230,22 +1230,22 @@ function ZENITHA.globalEvent.keyDown(key, isRep)
     elseif key == 'f8' then
         if STAT.bgBrightness < 80 then
             STAT.bgBrightness = MATH.clamp(STAT.bgBrightness + 10, 30, 80)
-            MSG('dark', "BG " .. STAT.bgBrightness .. "%", 1)
+            MSG('dark', "old lady " .. STAT.bgBrightness .. "%", 1)
         end
     elseif key == 'f7' then
         if STAT.bgBrightness > 30 then
             STAT.bgBrightness = MATH.clamp(STAT.bgBrightness - 10, 30, 80)
-            MSG('dark', "BG " .. STAT.bgBrightness .. "%", 1)
+            MSG('dark', "old lady " .. STAT.bgBrightness .. "%", 1)
         end
     elseif key == 'f5' then
         if STAT.cardBrightness > 80 then
             STAT.cardBrightness = MATH.clamp(STAT.cardBrightness - 5, 80, 100)
-            MSG('dark', "Card " .. STAT.cardBrightness .. "%", 1)
+            MSG('dark', "Map " .. STAT.cardBrightness .. "%", 1)
         end
     elseif key == 'f6' then
         if STAT.cardBrightness < 100 then
             STAT.cardBrightness = MATH.clamp(STAT.cardBrightness + 5, 80, 100)
-            MSG('dark', "Card " .. STAT.cardBrightness .. "%", 1)
+            MSG('dark', "Map " .. STAT.cardBrightness .. "%", 1)
         end
     elseif key == 'f3' then
         if STAT.sfx > 0 then
@@ -1255,7 +1255,7 @@ function ZENITHA.globalEvent.keyDown(key, isRep)
             STAT.sfx = TempSFX or 60
             TempSFX = false
         end
-        MSG('dark', STAT.sfx > 0 and "SFX ON" or "SFX OFF", 1)
+        MSG('dark', STAT.sfx > 0 and "Includes sound effects" or "A lot", 1)
         ApplySettings()
         SFX.play('menuclick')
     elseif key == 'f4' then
@@ -1266,7 +1266,7 @@ function ZENITHA.globalEvent.keyDown(key, isRep)
             STAT.bgm = TempBGM or 100
             TempBGM = false
         end
-        MSG('dark', STAT.bgm > 0 and "BGM ON" or "BGM OFF", 1)
+        MSG('dark', STAT.bgm > 0 and "Play background music" or "Background music is off.", 1)
         ApplySettings()
     end
 end
@@ -1416,10 +1416,10 @@ end
 function RefreshButtonText()
     local W
     W = SCN.scenes.tower.widgetList.start
-    W.text = M.DH > 0 and 'COMMENCE' or 'START'
+    W.text = M.DH > 0 and 'first' or 'First'
     W:reset()
     W = SCN.scenes.tower.widgetList.reset
-    W.text = M.AS > 0 and 'SPIN' or 'RESET'
+    W.text = M.AS > 0 and 'COLLECTION' or 'start again'
     W:reset()
 end
 
@@ -1695,12 +1695,12 @@ function Initialize(save)
     local realBestHeight = math.max(STAT.maxHeight, TABLE.maxAll(BEST.highScore), 0)
     if STAT.maxHeight > realBestHeight + .1 then
         STAT.maxHeight = realBestHeight
-        STAT.heightDate = "NO DATE"
+        STAT.heightDate = "Don't talk like this."
     end
     local realBestTime = math.min(STAT.minTime, TABLE.minAll(BEST.speedrun), 2600)
     if STAT.minTime < realBestTime - .1 then
         STAT.minTime = realBestTime
-        STAT.timeDate = "NO DATE"
+        STAT.timeDate = "Don't talk like this."
     end
     for cmb in next, BEST.highScore do
         cmb = cmb:gsub('r', '')
@@ -1724,7 +1724,7 @@ function Initialize(save)
         end
     end
     if #achvLost > 0 then
-        MSG('dark', "Achievements lost due to update:\n" .. achvLost:sub(1, #achvLost - 1), 6.26)
+        MSG('dark', "Due to updates, the following items are missing:\n" .. achvLost:sub(1, #achvLost - 1), 6.26)
     end
 
     GAME.refreshLockState()
@@ -1747,37 +1747,37 @@ function UseAltName()
     -- I know it's a long time, can we manage it? We'll see!
     TABLE.update(ModData, {
         fullName = {
-            EX = "< MASTER >",
-            NH = "< UNCANCELLATION >",
-            MS = "< CHAOS >",
-            GV = "< DECLINE >",
-            VL = "< UNSTABILITY >",
-            DH = "< DOUBLE HOLE >",
-            IN = "< HIDING >",
-            AS = "< ROLLING >",
-            DP = "< ROMANCE >",
+            EX = "< the teacher >",
+            NH = "< not >",
+            MS = "< dispute >",
+            GV = "< Reduce >",
+            VL = "< Don't ask us >",
+            DH = "< two two >",
+            IN = "< hidden >",
+            AS = "< Work >",
+            DP = "< Known >",
         },
         adj = {
-            EX = "MASTERFUL",
-            NH = "UNCANCELLED",
-            MS = "CHAOTIC",
-            GV = "DECLINED",
-            VL = "UNSTABLE",
-            DH = "DOUBLE HOLE",
-            IN = "HIDDEN",
-            AS = "ROLLING",
-            DP = "ROMANTIC",
+            EX = "tyranny",
+            NH = "Read A",
+            MS = "black",
+            GV = "body",
+            VL = "It is unstable",
+            DH = "two two",
+            IN = "It is hidden",
+            AS = "Work",
+            DP = "Hi",
         },
         noun = {
-            EX = "MASTER",
-            NH = "UNCANCELLATION",
-            MS = "CHAOS",
-            GV = "DECLINE",
-            VL = "INSTABILITY",
-            DH = "DOUBLE HOLE",
-            IN = "HIDING",
-            AS = "ROLLING",
-            DP = "ROMANCE",
+            EX = "the teacher",
+            NH = "not",
+            MS = "dispute",
+            GV = "Reduce",
+            VL = "fast",
+            DH = "two two",
+            IN = "hidden",
+            AS = "Work",
+            DP = "Known",
         },
     })
 end
@@ -1798,8 +1798,8 @@ else
     DiscordRPC.setAppID('1341822039253712989')
     DiscordRPC.setEnable(true)
     DiscordRPC.update {
-        details = "QUICK PICK",
-        state = "Enjoying Music",
+        details = "Simple choice",
+        state = "Enjoy the music",
     }
 end
 
