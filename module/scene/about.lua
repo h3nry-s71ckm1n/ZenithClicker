@@ -26,22 +26,22 @@ local function addSection(y)
     table.insert(lines, y)
 end
 
-addText("ZENITH", 40, 20)
-addText("CLICKER", 80, 95)
+addText("Decorative", 40, 20)
+addText("click", 80, 95)
 
 addSection(220)
 
 addText(STRING.trimIndent [[
-    FLIP THE TAROT CARDS IN THIS MODERN YET UNFAMILIAR OFFLINE CLICKER.
-    PLAY TO IMPROVE YOUR SKILLS, AND GAIN CR FROM VARIOUS MODS
-    - THE CLICKER FUTURE IS YOURS!
+    A card for free travel in this new country.
+    Play with different sticks, improve your skills and earn CR.
+    - Did it click?
 ]], 0, 23, .3, 800)
 
 addSection(350)
 
 -- THE TEAM
 
-addText({ COLOR.O, "THE TEAM" }, 0, 20, .3)
+addText({ COLOR.O, "DEVICE" }, 0, 20, .3)
 
 local function addMajorCredit(x, y, color, name, role, desc)
     addText({ color, name }, x, y, .5)
@@ -49,42 +49,42 @@ local function addMajorCredit(x, y, color, name, role, desc)
     if desc then addText({ COLOR.LD, desc }, x, y + 60, .2) end
 end
 
-addMajorCredit(0000, 060, { COLOR.HEX '80CCFF' }, "MRZ", "FOUNDER & LEAD PRODUCER", "Programming, Game Design, General Development")
-addMajorCredit(-160, 160, { COLOR.HEX 'B966E3' }, "PETRTECH", "MUSIC", "F10 Music")
-addMajorCredit(0160, 160, { COLOR.HEX '9DBCFF' }, "RONEZKJ15", "MUSIC", "Extra Music")
-addMajorCredit(-320, 260, { COLOR.HEX 'DDFF80' }, "DJ  ASRIEL", "GRAPHICS", "Background Reconstruction & Game Icon")
-addMajorCredit(0000, 260, { COLOR.HEX '77DD66' }, "CREEPERCRAFTYT", "GRAPHICS", "Mod Icons & Card Art")
-addMajorCredit(0320, 260, { COLOR.HEX '5792FF' }, "ZYRIXIA", "GRAPHICS", "Rank Icons")
-addMajorCredit(-320, 360, { COLOR.HEX 'DD99FF' }, "OSK", "FOUNDER & LEAD PRODUCER", "of the Original Game: TETR.IO")
-addMajorCredit(0000, 360, { COLOR.HEX 'FF99CC' }, "DOKTOROCELOT", "AUDIO & MUSIC", "of both TETR.IO and Zenith Clicker")
-addMajorCredit(0320, 360, { COLOR.HEX '3A66DD' }, "GARBO", "GAME & WORLD DESIGN", "of the Original Game: TETR.IO")
-addMajorCredit(-320, 460, { COLOR.HEX 'F880F0' }, "FLOWERLING", "TEXT REVISION")
-addMajorCredit(0000, 460, { COLOR.HEX 'B7A0FF' }, "FLOMIKEL", "TEXTS & WORLD DESIGN", "Achievement Texts & Extra World Design")
-addMajorCredit(0320, 460, { COLOR.HEX 'FFE590' }, "MATTMAYUGA", "TEXT REVISION")
-addMajorCredit(-320, 560, { COLOR.HEX '8BD6C3' }, "OBSIDIAN", "TEXTS", "Achievement Texts")
-addMajorCredit(0000, 560, { COLOR.HEX 'FF82F0' }, "SPRITZY SHEEP", "WORLD DESIGN", "Extra World Design")
-addMajorCredit(0320, 560, { COLOR.HEX 'E9C6FF' }, "FCSPLAYZ", "SOME TEXTS")
+addMajorCredit(0000, 060, { COLOR.HEX '80CCFF' }, "MRZ", "Designers and manufacturers", "Programming, game design and general development")
+addMajorCredit(-160, 160, { COLOR.HEX 'B966E3' }, "PETRTECH", "Music", "F10 music")
+addMajorCredit(0160, 160, { COLOR.HEX '9DBCFF' }, "RONEZKJ15", "Music", "Other songs")
+addMajorCredit(-320, 260, { COLOR.HEX 'DDFF80' }, "DJ  ASRIEL", "Visual Arts:", "Creating game scenes and graphics")
+addMajorCredit(0000, 260, { COLOR.HEX '77DD66' }, "CREEPERCRAFTYT", "Visual Arts:", "Design blueprints and create maps")
+addMajorCredit(0320, 260, { COLOR.HEX '5792FF' }, "ZYRIXIA", "Visual Arts:", "Symbol size")
+addMajorCredit(-320, 360, { COLOR.HEX 'DD99FF' }, "OSK", "Designers and manufacturers", "Original game: TETR.IO")
+addMajorCredit(0000, 360, { COLOR.HEX 'FF99CC' }, "DOKTOROCELOT", "Sound and music", "From TETR.IO and Decorative click")
+addMajorCredit(0320, 360, { COLOR.HEX '3A66DD' }, "GARBO", "Interact and learn with the world", "Original game: TETR.IO")
+addMajorCredit(-320, 460, { COLOR.HEX 'F880F0' }, "FLOWERLING", "Word processing")
+addMajorCredit(0000, 460, { COLOR.HEX 'B7A0FF' }, "FLOMIKEL", "Creation and the world", "Workbook and international plan")
+addMajorCredit(0320, 460, { COLOR.HEX 'FFE590' }, "MATTMAYUGA", "Word processing")
+addMajorCredit(-320, 560, { COLOR.HEX '8BD6C3' }, "OBSIDIAN", "One sentence", "This is a good story.")
+addMajorCredit(0000, 560, { COLOR.HEX 'FF82F0' }, "SPRITZY SHEEP", "global project", "Many international houses")
+addMajorCredit(0320, 560, { COLOR.HEX 'E9C6FF' }, "FCSPLAYZ", "other questions")
 
 addSection(1010)
 
-addText({ COLOR.O, "ART BY" }, 0, 20, .3)
+addText({ COLOR.O, "Beautiful" }, 0, 20, .3)
 
-addMajorCredit(-390, 62, COLOR.L, "LARGEONIONS", "FLOORS 1-5")
-addMajorCredit(-130, 62, COLOR.L, "S. ZHANG", "FLOORS 6-8")
-addMajorCredit(0130, 62, COLOR.L, "LAUREN SHENG", "FLOORS 9-10")
-addMajorCredit(0390, 62, COLOR.L, "RICMAN", "ORIGINAL CARD ART")
+addMajorCredit(-390, 62, COLOR.L, "LARGEONIONS", "country 1-5")
+addMajorCredit(-130, 62, COLOR.L, "S. ZHANG", "country 6-8")
+addMajorCredit(0130, 62, COLOR.L, "LAUREN SHENG", "country 9-10")
+addMajorCredit(0390, 62, COLOR.L, "RICMAN", "A staple in the card industry")
 
 addSection(1160)
 
 addText({
-    COLOR.O, "FONTS BY ",
+    COLOR.O, "the source ",
     COLOR.L, "ADRIAN FRUTIGER (D-DIN-PRO) ",
     COLOR.O, "& ",
     COLOR.L, "MOONIAK (ABHAYALIBRE)"
 }, 0, 20, .32)
 
 addText({
-    COLOR.O, "SOME ACHV ICONS BY ",
+    COLOR.O, "Author of several ACHV symbols ",
     COLOR.L, "LORC, DELAPOUITE, QUOTING ",
     COLOR.O, "FROM ",
     COLOR.L, "GAME-ICONS.NET"
@@ -92,7 +92,7 @@ addText({
 
 addSection(1270)
 
-addText({ COLOR.O, "ALL PARTICIPANTS" }, 0, 20, .3)
+addText({ COLOR.O, "Everything has an effect" }, 0, 20, .3)
 
 addText({
     table.concat({
@@ -245,7 +245,7 @@ function scene.draw()
     gc_replaceTransform(SCR.xOy_dl)
     gc_setColor(clr.L)
     FONT.set(30)
-    gc_print("THANK YOU FOR PLAYING ZENITH CLICKER!", 15, -45, 0, .85, 1)
+    gc_print("Thanks for playing Decorative click!", 15, -45, 0, .85, 1)
 end
 
 scene.widgetList = {

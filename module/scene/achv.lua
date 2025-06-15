@@ -14,7 +14,7 @@ local colorRev = false
 local Achievements = Achievements
 local M = GAME.mod
 
-OverDevProgressText = "Open ACHV page to refresh the over-dev progress."
+OverDevProgressText = "For updated information on the development process, visit the ACHV website."
 
 ---@class EmptyAchv
 ---@field title string
@@ -47,7 +47,7 @@ local overallProgress = {
     countStart = 0,
     ptGet = 0,
     ptAll = 0,
-    ptText = "0/0 Pts",
+    ptText = "0/0 finger",
 }
 
 local function nameSortLT(i1, i2) return i1.name < i2.name end
@@ -65,7 +65,7 @@ local function refreshAchvList(canShuffle)
     for i = 1, #Achievements do
         local A = Achievements[i]
         if not A.id then
-            table.insert(achvList, { title = A.hide() and "???" or A.title and A.title:upper() })
+            table.insert(achvList, { title = A.hide() and "-" or A.title and A.title:upper() })
         else
             local rank, score, progress, wreath, overDev
             if TestMode or not ACHV[A.id] then
@@ -103,8 +103,8 @@ local function refreshAchvList(canShuffle)
             local descWidth = hidden and 26 or tempText:getWidth()
             table.insert(achvList, {
                 id = A.id,
-                name = hidden and "???" or A.name:upper(),
-                desc = hidden and "???" or A.desc,
+                name = hidden and "-" or A.name:upper(),
+                desc = hidden and "-" or A.desc,
                 descWidth = descWidth,
                 rank = floor(rank),
                 wreath = wreath,
@@ -121,7 +121,7 @@ local function refreshAchvList(canShuffle)
     end
     if odCount >= odCap * .62 then IssueSecret('exceed_dev', true) end
     if odCount >= odCap * .26 then IssueSecret('exceed_dev_half', true) end
-    OverDevProgressText = "ACHV scores better than Dev: " .. odCount .. "/" .. odCap
+    OverDevProgressText = "Better than an ACHV account: " .. odCount .. "/" .. odCap
     if canShuffle then
         if M.NH == 2 then
             TABLE.foreach(achvList, function(v) return not v.id end, true)
@@ -393,7 +393,7 @@ function scene.draw()
         gc_setAlpha(.626)
         gc_rectangle('fill', 400, 360, 680, 220)
         gc_setColor(COLOR.DL)
-        gc_print("Zenith Clicker Achievement System When?", 420, 380)
+        gc_print("when?", 420, 380)
         gc_setColor(COLOR.D)
         gc_rectangle('fill', 420, 435, 626, 50)
         gc_setColor(COLOR.lS)
@@ -403,7 +403,7 @@ function scene.draw()
         gc_setColor(COLOR.lD)
         gc_print("at 2025/3/18 (Tue)", 520, 440)
         gc_setColor(COLOR.lS)
-        gc_print("When it's ready.", 462, 520)
+        gc_print("When it's done", 462, 520)
     else
         -- Board
         gc_replaceTransform(SCR.xOy_m)
@@ -581,9 +581,9 @@ function scene.draw()
     gc_setColor(clr.L)
     FONT.set(50)
     if colorRev then
-        gc_print("ACHIEVEMENTS", 15, 68, 0, 1, -1)
+        gc_print("to reach", 15, 68, 0, 1, -1)
     else
-        gc_print("ACHIEVEMENTS", 15, 0)
+        gc_print("to reach", 15, 0)
     end
 
     -- Badge (wreath) count
@@ -619,7 +619,7 @@ function scene.draw()
     gc_replaceTransform(SCR.xOy_dl)
     gc_setColor(clr.L)
     FONT.set(30)
-    gc_print("VIEW YOUR ACHIEVEMENT PROGRESS!", 15, -45, 0, .85, 1)
+    gc_print("Check your progress!", 15, -45, 0, .85, 1)
 end
 
 scene.widgetList = {
@@ -628,7 +628,7 @@ scene.widgetList = {
         pos = { 0, 0 }, x = 60, y = 140, w = 160, h = 60,
         color = { .15, .15, .15 },
         sound_hover = 'menutap',
-        fontSize = 30, text = "    BACK", textColor = 'DL',
+        fontSize = 30, text = "    Return", textColor = 'DL',
         onClick = function() love.keypressed('escape') end,
     },
 }
