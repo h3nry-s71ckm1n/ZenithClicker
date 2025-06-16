@@ -16,34 +16,34 @@ local playingBgmTitle = 'Philosophyz'
 local playingBgmLength = 2202.8
 local playingBgmLengthStr = '22:02.8'
 local songList = {
-    f0 = "Dr Ocelot - Watchful Eye",
-    f1 = "Dr Ocelot - Divine Registration",
-    f2 = "Dr Ocelot - Zenith Hotel",
-    f3 = "Dr Ocelot - Empty Prayers",
-    f4 = "Dr Ocelot - Crowd Control",
-    f5 = "Dr Ocelot - Phantom Memories",
-    f6 = "Dr Ocelot - Echo",
-    f7 = "Dr Ocelot - Cryptic Chemistry",
-    f8 = "Dr Ocelot - Chrono Flux",
-    f9 = "Dr Ocelot - Broken Record",
-    f10 = "petrtech - Deified Validation",
-    tera = "Dr Ocelot - Schnellfeuer BULLET",
-    f1ex = "Dr Ocelot - Infernal Registration",
+    f0 = "Dr Ocelot - cares",
+    f1 = "Dr Ocelot - my lord",
+    f2 = "Dr Ocelot - Hotel Zenit",
+    f3 = "Dr Ocelot - The sentence is empty",
+    f4 = "Dr Ocelot - administration",
+    f5 = "Dr Ocelot - Imaginal memory",
+    f6 = "Dr Ocelot - voice",
+    f7 = "Dr Ocelot - Secret Chemistry",
+    f8 = "Dr Ocelot - sequence",
+    f9 = "Dr Ocelot - The table was broken",
+    f10 = "petrtech - God's power",
+    tera = "Dr Ocelot - Rapid fireball",
+    f1ex = "Dr Ocelot - Internal registration",
 
-    f0r = "Dr Ocelot - Awaiting Judgement",
-    f1r = "Dr Ocelot - Desecrated Ruins",
-    f2r = "Dr Ocelot - The Age of Vanity",
-    f3r = "Dr Ocelot - A Rigged Game",
-    f4r = "Dr Ocelot - Spectacles of Violence",
-    f5r = "Dr Ocelot - The Past Repeats",
-    f6r = "Dr Ocelot - Damning Evidence",
-    f7r = "Dr Ocelot - Cryptic Heresy",
-    f8r = "Dr Ocelot - Futile Ambition",
-    f9r = "Dr Ocelot - Mere Sacrifices",
-    f10r = "petrtech - Pseudo-Apotheosis",
-    terar = "Dr Ocelot - Kugelhagel OVERDRIVE",
+    f0r = "Dr Ocelot - Waiting for justice",
+    f1r = "Dr Ocelot - Act suddenly",
+    f2r = "Dr Ocelot - They rested",
+    f3r = "Dr Ocelot - This is a parkour game.",
+    f4r = "Dr Ocelot - Fierce struggle",
+    f5r = "Dr Ocelot - The future will come back.",
+    f6r = "Dr Ocelot - Deming's testimony",
+    f7r = "Dr Ocelot - secret service",
+    f8r = "Dr Ocelot - I didn't think so",
+    f9r = "Dr Ocelot - Just a victim",
+    f10r = "petrtech - Pseudopotheosis",
+    terar = "Dr Ocelot - Paul Hale exaggerates",
 
-    fomg = "Ronezkj15 - Strained Endurance",
+    fomg = "Ronezkj15 - Chronic depression",
 }
 local bgmColors = {
     f1 = { COLOR.HEX 'E46A24' },
@@ -112,28 +112,28 @@ end
 -- end
 
 local bindHint = {
-    "CARD-1",
-    "CARD-2",
-    "CARD-3",
-    "CARD-4",
-    "CARD-5",
-    "CARD-6",
-    "CARD-7",
-    "CARD-8",
-    "CARD-9",
-    "CARD-1 (2nd)",
-    "CARD-2 (2nd)",
-    "CARD-3 (2nd)",
-    "CARD-4 (2nd)",
-    "CARD-5 (2nd)",
-    "CARD-6 (2nd)",
-    "CARD-7 (2nd)",
-    "CARD-8 (2nd)",
-    "CARD-9 (2nd)",
-    "COMMIT",
-    "RESET",
-    "LEFTCLK",
-    "RIGHTCLK",
+    "Bible cards-1",
+    "Bible cards-2",
+    "Bible cards-3",
+    "Bible cards-4",
+    "Bible cards-5",
+    "Bible cards-6",
+    "Bible cards-7",
+    "Bible cards-8",
+    "Bible cards-9",
+    "Bible cards-1 (2nd)",
+    "Bible cards-2 (2nd)",
+    "Bible cards-3 (2nd)",
+    "Bible cards-4 (2nd)",
+    "Bible cards-5 (2nd)",
+    "Bible cards-6 (2nd)",
+    "Bible cards-7 (2nd)",
+    "Bible cards-8 (2nd)",
+    "Bible cards-9 (2nd)",
+    "to break up",
+    "changes",
+    "There is no CLK",
+    "Click the button on the right",
 }
 
 local KBisDown = love.keyboard.isDown
@@ -163,7 +163,7 @@ function scene.keyDown(key, isRep)
     elseif key == 'escape' or (key == 'f1' and not bindBuffer) then
         if bindBuffer then
             bindBuffer = nil
-            MSG('dark', "Keybinding cancelled")
+            MSG('dark', "Some links have expired")
             SFX.play('staffwarning')
         else
             SFX.play('menuclick')
@@ -171,7 +171,7 @@ function scene.keyDown(key, isRep)
         end
     elseif bindBuffer and isLegalKey(key) then
         if TABLE.find(bindBuffer, key) then
-            MSG('dark', "Keybinding should not repeat!", 1)
+            MSG('dark', "Do not copy the key!", 1)
             SFX.play('finessefault')
         else
             table.insert(bindBuffer, key)
@@ -179,7 +179,7 @@ function scene.keyDown(key, isRep)
                 STAT.keybind = bindBuffer
                 bindBuffer = nil
                 SaveStat()
-                MSG('dark', "Keybinding updated.")
+                MSG('dark', "Original link has been updated.")
                 SFX.play('social_notify_major')
             else
                 SFX.play('irs')
@@ -267,10 +267,10 @@ function scene.draw()
     gc_rectangle('fill', 0, 3, 3, h + 3)
 
     -- Sliders
-    drawSliderComponents(310, "EFFECT VOLUME", "QUIET (F3)", "LOUD (F3)", STAT.sfx)
-    drawSliderComponents(380, "MUSIC VOLUME", "QUIET (F4)", "LOUD (F4)", STAT.bgm)
-    drawSliderComponents(520, "CARD  BRIGHTNESS", "DARK (F5)", "BRIGHT (F6)", STAT.cardBrightness)
-    drawSliderComponents(590, "BG  BRIGHTNESS", "DARK (F7)", "BRIGHT (F8)", STAT.bgBrightness)
+    drawSliderComponents(310, "Limited products", "be silent (F3)", "from now on (F3)", STAT.sfx)
+    drawSliderComponents(380, "Music", "be silent (F4)", "from now on (F4)", STAT.bgm)
+    drawSliderComponents(520, "Show shortcut key", "Darkness (F5)", "Seen. (F6)", STAT.cardBrightness)
+    drawSliderComponents(590, "PG Cos", "Darkness (F7)", "Seen. (F8)", STAT.bgBrightness)
 
     -- Keybind
     if bindBuffer then
@@ -336,9 +336,9 @@ function scene.draw()
     gc_setColor(clr.L)
     FONT.set(50)
     if GAME.anyRev then
-        gc_print("CONFIG", 15, 68, 0, 1, -1)
+        gc_print("Stopping", 15, 68, 0, 1, -1)
     else
-        gc_print("CONFIG", 15, 0)
+        gc_print("Stopping", 15, 0)
     end
 
     -- Bottom bar & text
@@ -351,7 +351,7 @@ function scene.draw()
     gc_replaceTransform(SCR.xOy_dl)
     gc_setColor(clr.L)
     FONT.set(30)
-    gc_print("TWEAK YOUR SETTINGS FOR A BETTER CLICKING EXPERIENCE", 15, -45, 0, .85, 1)
+    gc_print("Adjust settings for better clicks", 15, -45, 0, .85, 1)
 end
 
 scene.widgetList = {
@@ -359,7 +359,7 @@ scene.widgetList = {
     WIDGET.new {
         name = 'album',
         type = 'text', alignX = 'left',
-        text = "ALBUM",
+        text = "album",
         color = clr.T,
         fontSize = 50,
         x = baseX + 30, y = baseY + 50,
@@ -368,7 +368,7 @@ scene.widgetList = {
         name = 'mp_prev5s', type = 'button',
         x = baseX + 230, y = baseY + 115, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "BACK  5S",
+        fontSize = 30, textColor = clr.LT, text = "5 seconds",
         sound_hover = 'menutap',
         onClick = function()
             TASK.removeTask_code(Task_MusicEnd)
@@ -380,7 +380,7 @@ scene.widgetList = {
         name = 'mp_next5s', type = 'button',
         x = baseX + 640, y = baseY + 115, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "FORWARD  5S",
+        fontSize = 30, textColor = clr.LT, text = "5 more seconds",
         sound_hover = 'menutap',
         onClick = function()
             TASK.removeTask_code(Task_MusicEnd)
@@ -392,7 +392,7 @@ scene.widgetList = {
         name = 'mp_noLoop', type = 'button',
         x = baseX + 230, y = baseY + 185, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "NO REPEAT MARKS",
+        fontSize = 30, textColor = clr.LT, text = "The bottom is not protected.",
         sound_hover = 'menutap',
         onClick = function()
             BgmLooping, BgmNeedSkip = false, false
@@ -404,7 +404,7 @@ scene.widgetList = {
     WIDGET.new {
         name = 'account',
         type = 'text', alignX = 'left',
-        text = "ACCOUNT",
+        text = "Invoice",
         color = clr.T,
         fontSize = 50,
         x = baseX + 30, y = baseY + 50,
@@ -413,41 +413,41 @@ scene.widgetList = {
         name = 'changeName', type = 'button',
         x = baseX + 230, y = baseY + 115, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "CHANGE  USERNAME",
+        fontSize = 30, textColor = clr.LT, text = "Change user.",
         sound_hover = 'menutap',
         sound_release = 'menuclick',
         onClick = function()
             -- MSG.clear()
             local newName = CLIPBOARD.get()
             if #newName == 0 then
-                MSG('dark', "No data in clipboard")
+                MSG('dark', "There is no content in the archive.")
                 return
             end
             newName = newName:trim()
             if TASK.lock('changeName', 2.6) then
                 SFX.play('notify')
-                MSG('dark', "Change your name to clipboard text? ('" .. newName .. "')\nPress again to confirm", 2.6)
+                MSG('dark', "Do you want to change your name on the bulletin board? ('" .. newName .. "')\nClick again to confirm", 2.6)
                 return
             end
             TASK.unlock('changeName')
             repeat
                 newName = newName:upper()
                 if #newName < 3 or #newName > 16 or newName:find('[^A-Z0-9_%-]') then
-                    MSG('dark', "New name must be 3-16 characters long and contain the following: A-Z, 0-9, -, _")
+                    MSG('dark', "The new name must be 3 to 16 characters long and contain: A-Z, 0-9, -, _")
                     break
                 end
                 if newName == STAT.uid then
-                    MSG('dark', "New name is the same as the old one.")
+                    MSG('dark', "New name, old name.")
                     break
                 end
                 if newName:match('^ANON[-_]') then
-                    MSG('dark', "You can’t enter ANON as your new name.")
+                    MSG('dark', "ANON cannot be assigned a new name.")
                     break
                 end
                 STAT.uid = newName
                 SaveStat()
                 SFX.play('supporter')
-                MSG('dark', "Your name was changed to " .. STAT.uid)
+                MSG('dark', "Your name has been changed " .. STAT.uid)
                 if SCN.cur == 'stat' then RefreshProfile() end
                 IssueAchv('identity')
                 return
@@ -460,40 +460,40 @@ scene.widgetList = {
         name = 'changeAboutme', type = 'button',
         x = baseX + 640, y = baseY + 115, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "CHANGE  ABOUT ME",
+        fontSize = 30, textColor = clr.LT, text = "Let's change that",
         sound_hover = 'menutap',
         sound_release = 'menuclick',
         onClick = function()
             -- MSG.clear()
             local newText = CLIPBOARD.get()
             if #newText == 0 then
-                MSG('dark', "No data in clipboard")
+                MSG('dark', "There is no content in the archive.")
                 return
             end
             newText = newText:trim()
             if TASK.lock('changeAboutme', 2.6) then
                 SFX.play('notify')
-                MSG('dark', "Change your about me text to clipboard text?\nPress again to confirm", 2.6)
+                MSG('dark', "Want to change your About Me text in the clipboard text?\nClick again to confirm", 2.6)
                 return
             end
             TASK.unlock('changeAboutme')
             repeat
                 if type(newText) ~= 'string' then
-                    MSG('dark', "No data in clipboard")
+                    MSG('dark', "There is no content in the archive.")
                     break
                 end
                 if #newText < 1 or #newText > 260 or newText:find('[^\32-\126]') then
-                    MSG('dark', "Text must be 1-260 characters long and contain visible ASCII characters")
+                    MSG('dark', "Text must be 1 to 260 characters long and contain visible ASCII characters.")
                     break
                 end
                 if newText == STAT.aboutme then
-                    MSG('dark', "New text is the same as the old one")
+                    MSG('dark', "The new language is similar to the old.")
                     break
                 end
                 STAT.aboutme = newText
                 SaveStat()
                 SFX.play('supporter')
-                MSG('dark', "Your About Me text has been updated.")
+                MSG('dark', "The article has been updated.")
                 if SCN.cur == 'stat' then RefreshProfile() end
                 IssueAchv('identity')
                 return
@@ -506,24 +506,24 @@ scene.widgetList = {
         name = 'export', type = 'button',
         x = baseX + 230, y = baseY + 185, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "EXPORT  PROGRESS",
+        fontSize = 30, textColor = clr.LT, text = "Overseas development",
         sound_hover = 'menutap',
         sound_release = 'menuclick',
         onClick = function()
             -- MSG.clear()
             if TestMode then
                 SFX.play('staffwarning')
-                MSG('dark', "You are not a good person.")
+                MSG('dark', "You are not a good person")
                 return
             end
             if TASK.lock('export', 2.6) then
                 SFX.play('notify')
-                MSG('dark', "Export your progress to clipboard?\nPress again to confirm", 2.6)
+                MSG('dark', "Want to share your progress on the board?\nClick again to confirm", 2.6)
                 return
             end
             TASK.unlock('export')
             CLIPBOARD.set(STRING.packTable(STAT) .. ',' .. STRING.packTable(BEST) .. ',' .. STRING.packTable(ACHV))
-            MSG('dark', "Progress exported!")
+            MSG('dark', "Excellent delivery.")
             SFX.play('social_notify_minor')
         end,
         visibleFunc = TRUE,
@@ -532,7 +532,7 @@ scene.widgetList = {
         name = 'import', type = 'button',
         x = baseX + 640, y = baseY + 185, w = 380, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "IMPORT  PROGRESS",
+        fontSize = 30, textColor = clr.LT, text = "The importance of development",
         sound_hover = 'menutap',
         sound_release = 'menuclick',
         onClick = function()
@@ -540,22 +540,22 @@ scene.widgetList = {
             local data = CLIPBOARD.get():filterASCII():trim()
             if #data <= 26 then
                 if data == '' then
-                    MSG('dark', "No data in clipboard")
+                    MSG('dark', "There is no content in the archive.")
                 elseif data == 'cmd' then
                     SFX.play('cutin_superlobby', 1, 0, Tone(-2))
                     SCN.go('_console')
                 elseif data == 'cooldown' then
                     STAT.startCD = not STAT.startCD
-                    MSG('dark', "Restart cooldown: " .. (STAT.startCD and "ON" or "OFF"))
+                    MSG('dark', "Restart the cooler: " .. (STAT.startCD and "ON" or "OFF"))
                     SFX.play(STAT.startCD and 'social_online' or 'social_offline')
                 elseif data == 'fps' then
                     STAT.showFPS = not STAT.showFPS
-                    MSG('dark', "Show FPS: " .. (STAT.showFPS and "ON" or "OFF"))
+                    MSG('dark', "Show FPS. " .. (STAT.showFPS and "ON" or "OFF"))
                     SFX.play(STAT.showFPS and 'social_online' or 'social_offline')
                     ZENITHA.setShowFPS(STAT.showFPS)
                 elseif data == 'old_hitbox' then
                     STAT.oldHitbox = not STAT.oldHitbox
-                    MSG('dark', "Force old hitbox: " .. (STAT.oldHitbox and "ON" or "OFF"))
+                    MSG('dark', "Reinforce the previous section: " .. (STAT.oldHitbox and "ON" or "OFF"))
                     SFX.play(STAT.oldHitbox and 'social_online' or 'social_offline')
                     TEXTS.version:set(SYSTEM .. (STAT.oldHitbox and " T" or " V") .. (require 'version'.verStr))
                 elseif data == 'true_ending' then
@@ -583,30 +583,30 @@ scene.widgetList = {
                     _G[UAN]()
                     SFX.play('social_dm')
                 else
-                    local msg = "Invalid code '" .. data .. "' in clipboard."
+                    local msg = "Invalid code '" .. data .. "' the world"
                     if MATH.roll(.26) then
                         msg = msg .. "\n" .. TABLE.getRandom {
-                            "Try 'cmd'",
-                            "Try 'cooldown'",
-                            "Try 'fps'",
-                            "Try 'old_hitbox'",
-                            "Try 'test'",
-                            MATH.coin("Try 'mp'", "Try 'music'"),
-                            "Try 'f" .. STAT.maxFloor .. "'",
-                            STAT.clicker and "Try 'true_ending'" or nil,
+                            "clarification 'cmd'",
+                            "clarification 'cooldown'",
+                            "clarification 'fps'",
+                            "clarification 'old_hitbox'",
+                            "clarification 'test'",
+                            MATH.coin("clarification 'mp'", "clarification 'music'"),
+                            "clarification 'f" .. STAT.maxFloor .. "'",
+                            STAT.clicker and "clarification 'true_ending'" or nil,
                         }
                     end
                     MSG('dark', msg)
                     SFX.play('staffwarning')
                     return
                 end
-                LOG('info', "Secret: " .. data)
+                LOG('info', "salary: " .. data)
                 return
             end
             if TASK.lock('import', 4.2) then
                 SFX.play('notify')
                 MSG('dark',
-                    "Import data from clipboard text?\nThe version must match; all progress you made so far will be permanently lost!\nPress again to confirm",
+                    "Import data from text into element?\nThey must have food; all your progress will be lost forever!\nClick again to confirm",
                     4.2)
                 return
             end
@@ -621,15 +621,15 @@ scene.widgetList = {
                 suc3, res3 = true, {}
             end
             if not suc1 or not suc2 or not suc3 then
-                MSG('dark', "Invalid data format")
+                MSG('dark', "Invalid file type")
                 SFX.play('staffwarning')
                 return
             elseif res1.version > STAT.version then
-                MSG('error', "Cannot import data from future versions\nPlease update your game first!")
+                MSG('error', "Data from later versions will not be included.\nRaise your game!")
                 SFX.play('staffwarning')
                 return
             elseif res1.mod ~= 'vanilla' then
-                MSG('dark', "Cannot import data from modded version")
+                MSG('dark', "You cannot import data from a modified version")
                 SFX.play('staffwarning')
                 return
             end
@@ -643,7 +643,7 @@ scene.widgetList = {
                 IssueAchv('zenith_relocation')
             end
             Initialize(true)
-            MSG('dark', "Progress imported!")
+            MSG('dark', "Widespread!")
             SFX.play('social_notify_major')
         end,
     },
@@ -684,7 +684,7 @@ scene.widgetList = {
     -- VIDEO
     WIDGET.new {
         type = 'text', alignX = 'left',
-        text = "VIDEO",
+        text = "video",
         color = clr.T,
         fontSize = 50,
         x = baseX + 30, y = baseY + 460,
@@ -711,7 +711,7 @@ scene.widgetList = {
         type = 'checkBox',
         fillColor = clr.cbFill,
         frameColor = clr.cbFrame,
-        textColor = clr.T, text = "FANCY BACKGROUND  (F9)",
+        textColor = clr.T, text = "It supports the light  (F9)",
         x = baseX + 55, y = baseY + 670,
         disp = function() return STAT.bg end,
         code = WIDGET.c_pressKey 'f9',
@@ -720,7 +720,7 @@ scene.widgetList = {
         type = 'checkBox',
         fillColor = clr.cbFill,
         frameColor = clr.cbFrame,
-        textColor = clr.T, text = "STAR FORCE  (F10)",
+        textColor = clr.T, text = "The power of the stars  (F10)",
         x = baseX + 55, y = baseY + 730,
         disp = function() return not STAT.syscursor end,
         code = WIDGET.c_pressKey 'f10',
@@ -729,7 +729,7 @@ scene.widgetList = {
         type = 'checkBox',
         fillColor = clr.cbFill,
         frameColor = clr.cbFrame,
-        textColor = clr.T, text = "FULLSCREEN  (F11)",
+        textColor = clr.T, text = "Delivery service  (F11)",
         x = baseX + 55, y = baseY + 790,
         disp = function() return STAT.fullscreen end,
         code = WIDGET.c_pressKey 'f11',
@@ -740,7 +740,7 @@ scene.widgetList = {
         name = 'keybind', type = 'button',
         x = baseX + 740, y = baseY + 790, w = 260, h = 50,
         color = clr.L,
-        fontSize = 30, textColor = clr.LT, text = "REBIND  KEY",
+        fontSize = 30, textColor = clr.LT, text = "OPENING",
         sound_hover = 'menutap',
         sound_release = 'menuclick',
         onClick = function()
@@ -752,14 +752,14 @@ scene.widgetList = {
                 if TASK.lock('rebind_control', 12) then
                     SFX.play('notify')
                     MSG('dark', {
-                            "Current Keybinding:\n" ..
+                            "Current mandatory key:\n" ..
                             table.concat(TABLE.sub(STAT.keybind, 1, 9), ', ') .. "\n" ..
                             table.concat(TABLE.sub(STAT.keybind, 10, 18), ', ') .. "\n" ..
-                            "Commit: " .. STAT.keybind[19] .. "\n" ..
-                            "Reset: " .. STAT.keybind[20] .. "\n" ..
-                            "Click L/R: " .. STAT.keybind[21] .. ", " .. STAT.keybind[22] .. "\n",
-                            COLOR.F, "PRESS AGAIN TO REBIND\n",
-                            COLOR.LD, "(F1-F12 ` Tab Ctrl Alt are not allowed)"
+                            "to break up: " .. STAT.keybind[19] .. "\n" ..
+                            "changes: " .. STAT.keybind[20] .. "\n" ..
+                            "Left/right click: " .. STAT.keybind[21] .. ", " .. STAT.keybind[22] .. "\n",
+                            COLOR.F, "Click to resume\n",
+                            COLOR.LD, "(F1-F12 'Ctrl Alt Tab not supported)"
                         },
                         12
                     )
